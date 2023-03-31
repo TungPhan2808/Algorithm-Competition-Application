@@ -1,6 +1,6 @@
 ﻿using Equifinance.Mock.API.DTO;
 
-namespace Equifinance.Mock.API.Interfaces
+namespace Equifinance.Mock.Core.Interfaces.IService
 {
     public interface IProblemService
     {

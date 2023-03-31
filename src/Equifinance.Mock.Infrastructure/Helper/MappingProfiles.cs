@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Equifinance.Mock.API.DTO;
-using Equifinance.Mock.API.Models;
+using Equifinance.Mock.Core.Models;
 
-namespace Equifinance.Mock.API.Helper
+namespace Equifinance.Mock.Infrastructure.Helper
 {
     public class MappingProfiles : Profile
     {

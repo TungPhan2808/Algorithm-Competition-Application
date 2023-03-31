@@ -1,5 +1,5 @@
 ﻿using Equifinance.Mock.API.DTO;
-using Equifinance.Mock.API.Interfaces;
+using Equifinance.Mock.Core.Interfaces.IService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Equifinance.Mock.API.Controllers

@@ -1,8 +1,10 @@
-using Equifinance.Mock.API.Data;
-using Equifinance.Mock.API.Helper;
-using Equifinance.Mock.API.Interfaces;
 using Equifinance.Mock.API.Repository;
 using Equifinance.Mock.API.Services;
+using Equifinance.Mock.Core.Interfaces.IRepository;
+using Equifinance.Mock.Core.Interfaces.IService;
+using Equifinance.Mock.Infrastructure.Data;
+using Equifinance.Mock.Infrastructure.Helper;
+using Equifinance.Mock.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -29,6 +31,7 @@ builder.Services.AddScoped<IProblemRepository, ProblemRepository>();
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 builder.Services.AddMemoryCache();
 
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

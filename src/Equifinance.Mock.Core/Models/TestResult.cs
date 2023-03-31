@@ -1,4 +1,4 @@
-﻿namespace Equifinance.Mock.API.Models
+﻿namespace Equifinance.Mock.Core.Models
 {
     public class TestResult
     {

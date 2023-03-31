@@ -1,6 +1,6 @@
-﻿using Equifinance.Mock.API.Data;
-using Equifinance.Mock.API.Interfaces;
-using Equifinance.Mock.API.Models;
+﻿using Equifinance.Mock.Core.Interfaces.IRepository;
+using Equifinance.Mock.Core.Models;
+using Equifinance.Mock.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Equifinance.Mock.API.Repository

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Equifinance.Mock.API.DTO;
-using Equifinance.Mock.API.Interfaces;
-using Equifinance.Mock.API.Models;
+using Equifinance.Mock.Core.Interfaces.IRepository;
+using Equifinance.Mock.Core.Interfaces.IService;
+using Equifinance.Mock.Core.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -45,9 +46,7 @@ namespace Equifinance.Mock.API.Services
             CreatePasswordHash(userDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
             user.PasswordSalt = passwordSalt;
             user.PasswordHash = passwordHash;
-
             await _authenticationRepository.AddUserAsync(user);
-
             return _mapper.Map<UserDto>(user);
         }
 

@@ -1,7 +1,7 @@
-﻿using Equifinance.Mock.API.Models;
+﻿using Equifinance.Mock.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Equifinance.Mock.API.Data
+namespace Equifinance.Mock.Infrastructure.Data
 {
     public class DataContext : DbContext
     {

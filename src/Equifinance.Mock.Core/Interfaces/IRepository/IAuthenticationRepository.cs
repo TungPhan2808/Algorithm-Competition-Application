@@ -1,6 +1,6 @@
-﻿using Equifinance.Mock.API.Models;
+﻿using Equifinance.Mock.Core.Models;
 
-namespace Equifinance.Mock.API.Interfaces
+namespace Equifinance.Mock.Core.Interfaces.IRepository
 {
     public interface IAuthenticationRepository
     {

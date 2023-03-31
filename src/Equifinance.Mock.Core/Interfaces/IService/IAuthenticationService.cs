@@ -1,7 +1,6 @@
 ﻿using Equifinance.Mock.API.DTO;
-using Equifinance.Mock.API.Models;
 
-namespace Equifinance.Mock.API.Interfaces
+namespace Equifinance.Mock.Core.Interfaces.IService
 {
     public interface IAuthenticationService
     {
