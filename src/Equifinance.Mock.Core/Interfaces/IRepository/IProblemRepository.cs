@@ -2,7 +2,7 @@
 
 namespace Equifinance.Mock.Core.Interfaces.IRepository
 {
-    public interface IProblemRepository : IGenericRepository<Problem>
+    public interface IProblemRepository : IGenericRepository<Problem, int>
     {
         bool IsExistedUser(int userId);
     }

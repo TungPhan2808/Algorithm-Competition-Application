@@ -4,7 +4,7 @@ using Equifinance.Mock.Infrastructure.Data;
 
 namespace Equifinance.Mock.Infrastructure.Repository
 {
-    public class TestCaseRepository : GenericRepository<TestCase>, ITestCaseRepository
+    public class TestCaseRepository : GenericRepository<TestCase, int>, ITestCaseRepository
     {
         public TestCaseRepository(DataContext context) : base(context)
         {

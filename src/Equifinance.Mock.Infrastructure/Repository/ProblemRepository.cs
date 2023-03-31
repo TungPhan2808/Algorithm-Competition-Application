@@ -5,7 +5,7 @@ using Equifinance.Mock.Infrastructure.Repository;
 
 namespace Equifinance.Mock.API.Repository
 {
-    public class ProblemRepository : GenericRepository<Problem>, IProblemRepository
+    public class ProblemRepository : GenericRepository<Problem, int>, IProblemRepository
     {
         public ProblemRepository(DataContext context) : base(context)
         {

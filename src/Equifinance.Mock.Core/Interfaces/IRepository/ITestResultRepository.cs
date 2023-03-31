@@ -2,7 +2,7 @@
 
 namespace Equifinance.Mock.Core.Interfaces.IRepository
 {
-    public interface ITestResultRepository : IGenericRepository<TestResult>
+    public interface ITestResultRepository : IGenericRepository<TestResult, int>
     {
     }
 }

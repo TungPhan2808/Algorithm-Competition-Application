@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Equifinance.Mock.Infrastructure.Repository
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity, TId> : IGenericRepository<TEntity, TId> where TEntity : class
     {
         public readonly DataContext _context;
 
@@ -19,7 +19,7 @@ namespace Equifinance.Mock.Infrastructure.Repository
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity?> GetByIdAsync(int id)
+        public async Task<TEntity?> GetByIdAsync(TId id)
         {
             return await _context.Set<TEntity>().FindAsync(id);
         }

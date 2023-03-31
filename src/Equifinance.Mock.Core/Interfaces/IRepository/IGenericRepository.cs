@@ -2,10 +2,10 @@
 
 namespace Equifinance.Mock.Core.Interfaces.IRepository
 {
-    public interface IGenericRepository<TEntity> where TEntity : class
+    public interface IGenericRepository<TEntity, TId> where TEntity : class
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<TEntity?> GetByIdAsync(int id);
+        Task<TEntity?> GetByIdAsync(TId id);
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
         Task AddOneAsync(TEntity entity);
         Task AddRangeAsync(IEnumerable<TEntity> entities);
