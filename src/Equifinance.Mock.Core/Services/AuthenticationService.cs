@@ -32,7 +32,7 @@ namespace Equifinance.Mock.API.Services
                 NullReferenceException exception = new NullReferenceException("Email cannot be null");
                 throw exception;
             }
-            if (await _authenticationRepository.EmailExistsAsync(userDto.Email))
+            if (await _authenticationRepository.IsEmailExistsAsync(userDto.Email))
             {
                 NullReferenceException nullReferenceException = new NullReferenceException("Email already exists");
                 throw nullReferenceException;

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Equifinance.Mock.API.DTO;
+using Equifinance.Mock.Core.DTO.Request;
+using Equifinance.Mock.Core.Exceptions;
 using Equifinance.Mock.Core.Interfaces.IRepository;
 using Equifinance.Mock.Core.Interfaces.IService;
 using Equifinance.Mock.Core.Models;
@@ -17,34 +19,13 @@ namespace Equifinance.Mock.API.Services
             _mapper = mapper;
         }
 
-        public async Task<ProblemDto> CreateProblemAsync(int userId, ProblemRequestDto problemCreateDto)
+        public async Task<ProblemDto> CreateProblemAsync(int userId, ProblemRequest problemCreate)
         {
-            if (_unitOfWork.Problem.IsExistedUser(userId))
+            if (!await _unitOfWork.Problem.IsExistedUser(userId))
             {
-                Exception exception = new Exception($"User {userId} not found");
-                throw exception;
+                throw new EntityNotFoundException($"No user found with id {userId}.");
             }
-            var problem = _mapper.Map<Problem>(problemCreateDto);
-            if (problem == null)
-            {
-                NullReferenceException nullReferenceException = new NullReferenceException("Problem cannot be null.");
-                throw nullReferenceException;
-            }
-            if (problem.Topic == null)
-            {
-                NullReferenceException nullReferenceException = new NullReferenceException("Problem topic cannot be null.");
-                throw nullReferenceException;
-            }
-            if (problem.Description == null)
-            {
-                NullReferenceException nullReferenceException = new NullReferenceException("Problem describtion cannot be null.");
-                throw nullReferenceException;
-            }
-            if (problem.Difficulty == null)
-            {
-                NullReferenceException nullReferenceException = new NullReferenceException("Problem difficulty cannot be null.");
-                throw nullReferenceException;
-            }
+            var problem = _mapper.Map<Problem>(problemCreate);
             problem.UserID = userId;
             await _unitOfWork.Problem.AddOneAsync(problem);
             return _mapper.Map<ProblemDto>(problem);
@@ -55,8 +36,7 @@ namespace Equifinance.Mock.API.Services
             var problem = await _unitOfWork.Problem.GetByIdAsync(problemId);
             if (problem == null)
             {
-                Exception exception = new Exception($"Problem with ID {problemId} not found.");
-                throw exception;
+                throw new EntityNotFoundException($"No problem found with ID {problemId}.");
             }
             return _mapper.Map<ProblemDto>(problem);
         }
@@ -67,12 +47,12 @@ namespace Equifinance.Mock.API.Services
             return _mapper.Map<IEnumerable<ProblemDto>>(problems);
         }
 
-        public async Task UpdateProblemAsync(int problemId, ProblemRequestDto problemUpdateDto)
+        public async Task UpdateProblemAsync(int problemId, ProblemRequest problemUpdateDto)
         {
             var problem = await _unitOfWork.Problem.GetByIdAsync(problemId);
             if (problem == null)
             {
-                NullReferenceException nullReferenceException = new NullReferenceException("Problem cannot be null."); throw nullReferenceException;
+                throw new EntityNotFoundException($"Problem can not be null.");
             }
             problem.Topic = problemUpdateDto.Topic;
             problem.Description = problemUpdateDto.Description;
@@ -84,8 +64,7 @@ namespace Equifinance.Mock.API.Services
             var problem = await _unitOfWork.Problem.GetByIdAsync(problemId);
             if (problem == null)
             {
-                Exception exception = new Exception($"Problem {problemId} is not found");
-                throw exception;
+                throw new EntityNotFoundException($"No problem found with ID {problemId}.");
             }
             await _unitOfWork.Problem.RemoveAsync(problem);
         }

@@ -1,4 +1,4 @@
-﻿using Equifinance.Mock.API.DTO;
+﻿using Equifinance.Mock.Core.DTO.Request;
 using Equifinance.Mock.Core.Interfaces.IService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,14 +26,14 @@ namespace Equifinance.Mock.API.Controllers
             return Ok(problem);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProblem(int userId, [FromBody] ProblemRequestDto problemCreateDto)
+        public async Task<IActionResult> CreateProblem(int userId, [FromBody] ProblemRequest problemCreate)
         {
-            var problem = await _problemService.CreateProblemAsync(userId, problemCreateDto);
+            var problem = await _problemService.CreateProblemAsync(userId, problemCreate);
             return CreatedAtAction(nameof(GetProblemById), new { id = problem.ProblemID }, problem);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProblem(int id, ProblemRequestDto problemUpdateDto)
+        public async Task<IActionResult> UpdateProblem(int id, ProblemRequest problemUpdateDto)
         {
             try
             {

@@ -1,4 +1,5 @@
-﻿using Equifinance.Mock.Core.Interfaces.IRepository;
+﻿using Equifinance.Mock.Core.Exceptions;
+using Equifinance.Mock.Core.Interfaces.IRepository;
 using Equifinance.Mock.Core.Models;
 using Equifinance.Mock.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,7 @@ namespace Equifinance.Mock.API.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> EmailExistsAsync(string email)
+        public async Task<bool> IsEmailExistsAsync(string email)
         {
             return await _context.Users.AnyAsync(u => u.Email == email);
         }
@@ -30,8 +31,7 @@ namespace Equifinance.Mock.API.Repository
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
             if (user == null)
             {
-                NullReferenceException nullReferenceException = new NullReferenceException($"No user found with email {email}");
-                throw nullReferenceException;
+                throw new EntityNotFoundException($"No user found with email {email}");
             }
             return user;
         }
@@ -41,8 +41,7 @@ namespace Equifinance.Mock.API.Repository
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserID == id);
             if (user == null)
             {
-                NullReferenceException nullReferenceException = new NullReferenceException($"No user found with id {id}");
-                throw nullReferenceException;
+                throw new EntityNotFoundException($"No user found with id {id}");
             }
             return user;
         }

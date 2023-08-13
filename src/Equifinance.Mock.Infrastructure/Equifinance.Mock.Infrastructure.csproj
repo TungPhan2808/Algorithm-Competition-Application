@@ -23,4 +23,11 @@
     <ProjectReference Include="..\Equifinance.Mock.Core\Equifinance.Mock.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Execution\" />
+    <Folder Include="ExecutionFactory\" />
+    <Folder Include="Docker\" />
+    <Folder Include="AzureQueue\" />
+  </ItemGroup>
+
 </Project>

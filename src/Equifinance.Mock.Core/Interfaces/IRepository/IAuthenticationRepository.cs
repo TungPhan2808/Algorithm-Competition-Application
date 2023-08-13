@@ -4,7 +4,7 @@ namespace Equifinance.Mock.Core.Interfaces.IRepository
 {
     public interface IAuthenticationRepository
     {
-        Task<bool> EmailExistsAsync(string email);
+        Task<bool> IsEmailExistsAsync(string email);
         Task AddUserAsync(User user);
         Task<User> GetUserByEmailAsync(string email);
         Task<User> GetUserByIdAsync(int id);

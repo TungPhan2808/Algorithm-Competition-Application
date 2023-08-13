@@ -1,6 +1,6 @@
-﻿namespace Equifinance.Mock.API.DTO
+﻿namespace Equifinance.Mock.Core.DTO.Request
 {
-    public class ProblemRequestDto
+    public class ProblemRequest
     {
         public string? Topic { get; set; }
 

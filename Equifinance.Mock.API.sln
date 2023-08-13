@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equifinance.Mock.Core", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equifinance.Mock.Infrastructure", "src\Equifinance.Mock.Infrastructure\Equifinance.Mock.Infrastructure.csproj", "{81DDFFD4-D279-4039-80EA-62DC3575A496}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equifinance.Mock.Test", "Equifinance.Mock.Test\Equifinance.Mock.Test.csproj", "{4C0A9D12-7437-409B-9170-F3D13B8422EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueStorage", "QueueStorage\QueueStorage.csproj", "{12E0259F-1F32-4085-9341-2985BDA37263}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{81DDFFD4-D279-4039-80EA-62DC3575A496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDFFD4-D279-4039-80EA-62DC3575A496}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDFFD4-D279-4039-80EA-62DC3575A496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0A9D12-7437-409B-9170-F3D13B8422EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0A9D12-7437-409B-9170-F3D13B8422EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0A9D12-7437-409B-9170-F3D13B8422EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0A9D12-7437-409B-9170-F3D13B8422EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E0259F-1F32-4085-9341-2985BDA37263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E0259F-1F32-4085-9341-2985BDA37263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E0259F-1F32-4085-9341-2985BDA37263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E0259F-1F32-4085-9341-2985BDA37263}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

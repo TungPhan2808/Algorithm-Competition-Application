@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Equifinance.Mock.Infrastructure.Repository
 {
-    public class GenericRepository<TEntity, TId> : IGenericRepository<TEntity, TId> where TEntity : class
+    public abstract class GenericRepository<TEntity, TId> : IGenericRepository<TEntity, TId> where TEntity : class
     {
         public readonly DataContext _context;
 

@@ -2,6 +2,7 @@
 using Equifinance.Mock.Core.Models;
 using Equifinance.Mock.Infrastructure.Data;
 using Equifinance.Mock.Infrastructure.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace Equifinance.Mock.API.Repository
 {
@@ -11,10 +12,9 @@ namespace Equifinance.Mock.API.Repository
         {
         }
 
-        public bool IsExistedUser(int userId)
+        public async Task<bool> IsExistedUser(int userId)
         {
-            var exist = _context.Problems.Where(x => x.UserID == userId).Any();
-            return exist;
+            return await _context.Problems.AnyAsync(p => p.UserID == userId);
         }
     }
 }

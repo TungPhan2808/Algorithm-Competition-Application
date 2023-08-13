@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Equifinance.Mock.API.DTO;
+using Equifinance.Mock.Core.DTO.Request;
 using Equifinance.Mock.Core.Models;
 
 namespace Equifinance.Mock.Infrastructure.Helper
@@ -10,7 +11,7 @@ namespace Equifinance.Mock.Infrastructure.Helper
         {
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<Problem, ProblemDto>().ReverseMap();
-            CreateMap<ProblemRequestDto, Problem>().ReverseMap();
+            CreateMap<ProblemRequest, Problem>().ReverseMap();
         }
     }
 }
